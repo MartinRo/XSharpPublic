@@ -158,7 +158,7 @@ namespace Microsoft.VisualStudio.Project
             Utilities.CheckNotNull(node, "The project failed to be created");
             node.BuildEngine = this.buildEngine;
             node.BuildProject = this.buildProject;
-            node.Package = this.package as ProjectPackage;
+            node.Package = this.package as AsyncProjectPackage;
 			node.InitializeGlobals();
             return node;
         }
@@ -189,7 +189,7 @@ namespace Microsoft.VisualStudio.Project
         #region helpers
         private IProjectEvents GetProjectEventsProvider()
         {
-            ProjectPackage projectPackage = this.package as ProjectPackage;
+            AsyncProjectPackage projectPackage = this.package as AsyncProjectPackage;
             Debug.Assert(projectPackage != null, "Package not inherited from framework");
             if(projectPackage != null)
             {
